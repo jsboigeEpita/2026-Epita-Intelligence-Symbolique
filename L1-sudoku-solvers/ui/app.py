@@ -96,7 +96,7 @@ def playground() -> None:
             gcol1, gcol2 = st.columns([2, 1])
             gbucket = gcol1.selectbox(
                 "Difficulté",
-                ["easy", "medium", "hard", "diabolical", "multi"],
+                ["easy", "medium", "hard", "very_hard", "multi"],
                 index=1,
                 key="gen_bucket",
             )

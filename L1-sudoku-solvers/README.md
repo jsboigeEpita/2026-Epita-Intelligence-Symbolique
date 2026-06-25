@@ -66,7 +66,7 @@ src/sudoku/
   benchmark.py      # exécution sous timeout (process isolé) -> CSV
   report.py         # agrégation pandas + graphiques matplotlib -> markdown
 ui/app.py           # interface Streamlit (playground + dashboard)
-data/instances.json # grilles de difficulté croissante (easy..diabolical, 17 indices, multi)
+data/instances.json # grilles de difficulté croissante (easy..very_hard, 17 indices, multi)
 ```
 
 Chaque solveur dérive de `Solver` et renvoie un `SolveResult` uniforme, ce qui

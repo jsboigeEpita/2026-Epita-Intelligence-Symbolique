@@ -29,8 +29,8 @@
       "expected_solutions": 1
     },
     {
-      "id": "diabolical-1",
-      "bucket": "diabolical",
+      "id": "very_hard-1",
+      "bucket": "very_hard",
       "puzzle": "1....7.9..3..2...8..96..5....53..9...1..8...26....4...3......1..4......7..7...3..",
       "note": "AI Escargot — notoriously hard for backtracking.",
       "expected_solutions": 1
@@ -86,14 +86,14 @@
       "note": "généré"
     },
     {
-      "id": "diabolical-gen-100",
-      "bucket": "diabolical",
+      "id": "very_hard-gen-100",
+      "bucket": "very_hard",
       "puzzle": "......7...8.3451..32..8...5..5...4......6.9.22...74..3.5..1....84...3........735.",
       "note": "généré"
     },
     {
-      "id": "diabolical-gen-101",
-      "bucket": "diabolical",
+      "id": "very_hard-gen-101",
+      "bucket": "very_hard",
       "puzzle": ".....59.....72.8...61..93..41...6.5.8...7.1..9..2.......8..3..1.4....6..673....9.",
       "note": "généré"
     },

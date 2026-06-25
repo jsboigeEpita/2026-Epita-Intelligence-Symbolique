@@ -18,7 +18,7 @@ from .board import EMPTY, N, Grid
 _DATA = Path(__file__).resolve().parents[2] / "data" / "instances.json"
 
 # Bucket display order, easiest first.
-BUCKET_ORDER = ["easy", "medium", "hard", "diabolical", "minimal-17", "multi"]
+BUCKET_ORDER = ["easy", "medium", "hard", "very_hard", "minimal-17", "multi"]
 
 # Target number of holes (empty cells) per difficulty bucket for generation.
 # More holes -> fewer clues -> harder. Digging stops early if removing a cell
@@ -27,7 +27,7 @@ BUCKET_HOLES = {
     "easy": 40,
     "medium": 46,
     "hard": 50,
-    "diabolical": 54,
+    "very_hard": 54,
     "minimal-17": 64,
 }
 
