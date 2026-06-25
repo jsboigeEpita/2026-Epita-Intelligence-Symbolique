@@ -59,10 +59,10 @@ class DancingLinksSolver(Solver):
     # ---- core ------------------------------------------------------------
     def _run(self, grid: Grid, limit: int) -> List[Grid]:
         self._nodes = 0
-        header, columns = self._build(grid)
+        header, _columns = self._build(grid)
         solution_rows: List = []
         results: List[Grid] = []
-        self._search(header, columns, solution_rows, results, limit, grid)
+        self._search(header, solution_rows, results, limit)
         return results
 
     def _build(self, grid: Grid):
@@ -144,7 +144,7 @@ class DancingLinksSolver(Solver):
             col = col.R
         return best
 
-    def _search(self, header, columns, solution_rows, results, limit, grid) -> bool:
+    def _search(self, header, solution_rows, results, limit) -> bool:
         self._nodes += 1
         if header.R is header:
             results.append(self._to_grid(solution_rows))
@@ -160,7 +160,7 @@ class DancingLinksSolver(Solver):
             while j is not r:
                 self._cover(j.C)
                 j = j.R
-            if self._search(header, columns, solution_rows, results, limit, grid):
+            if self._search(header, solution_rows, results, limit):
                 return True
             solution_rows.pop()
             j = r.L

@@ -68,10 +68,14 @@ class BacktrackingSolver(Solver):
         Returns False on conflict (a peer left with no candidate).
         """
         bit = 1 << (v - 1)
+        if not (cand[idx] & bit):
+            return False  # value already eliminated here (e.g. conflicting clues)
         trail.append((idx, values[idx], cand[idx]))
         values[idx] = v
         cand[idx] = bit
         for p in _PEERS[idx]:
+            if values[p] == v:
+                return False  # a peer already holds this value (conflicting clues)
             if values[p] == EMPTY and (cand[p] & bit):
                 trail.append((p, values[p], cand[p]))
                 cand[p] &= ~bit

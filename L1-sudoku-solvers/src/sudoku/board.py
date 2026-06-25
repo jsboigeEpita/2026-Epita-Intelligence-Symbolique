@@ -56,13 +56,6 @@ class Grid:
             )
         return cls(tuple(values))
 
-    @classmethod
-    def from_rows(cls, rows: Iterable[Iterable[int]]) -> "Grid":
-        flat: List[int] = []
-        for row in rows:
-            flat.extend(int(v) for v in row)
-        return cls(tuple(flat))
-
     # ---- accessors --------------------------------------------------------
     def at(self, r: int, c: int) -> int:
         return self.cells[r * N + c]

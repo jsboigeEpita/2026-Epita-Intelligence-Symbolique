@@ -10,16 +10,6 @@ from typing import Iterator
 
 
 @dataclass
-class NodeCounter:
-    """A trivial mutable counter that tree-search solvers increment per node."""
-
-    count: int = 0
-
-    def tick(self, n: int = 1) -> None:
-        self.count += n
-
-
-@dataclass
 class Measurement:
     """Captured timing and peak-memory of an instrumented block."""
 
