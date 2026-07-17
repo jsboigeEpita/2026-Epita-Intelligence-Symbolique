@@ -1,0 +1,53 @@
+"""Minimax a profondeur bornee (sans elagage). Un 'noeud explore' = un appel
+recursif de _minimax (un noeud de l'arbre de jeu visite)."""
+
+from __future__ import annotations
+
+from ..core import NodeCounter, SolverOutput
+from .board import Board
+from .heuristic import evaluate
+from .match import run_match_solver
+
+WIN_SCORE = 10_000
+
+
+def _minimax(board: Board, depth: int, player: int, counter: NodeCounter) -> float:
+    counter.increment()
+    winner = board.winner()
+    if winner is not None:
+        return WIN_SCORE if winner == player else -WIN_SCORE
+    if depth == 0 or board.is_full():
+        return evaluate(board, player)
+
+    moves = board.ordered_moves()
+    maximizing = board.to_move == player
+    best = -float("inf") if maximizing else float("inf")
+    for col in moves:
+        value = _minimax(board.play(col), depth - 1, player, counter)
+        if maximizing:
+            best = max(best, value)
+        else:
+            best = min(best, value)
+    return best
+
+
+def choose_move(board: Board, depth: int, counter: NodeCounter) -> int:
+    player = board.to_move
+    moves = board.ordered_moves()
+    best_col = moves[0]
+    best_value = -float("inf")
+    for col in moves:
+        value = _minimax(board.play(col), depth - 1, player, counter)
+        if value > best_value:
+            best_value = value
+            best_col = col
+    return best_col
+
+
+def solve_minimax(instance: tuple[Board, int], counter: NodeCounter) -> SolverOutput:
+    board, depth = instance
+
+    def agent_choose_move(b: Board, c: NodeCounter) -> int:
+        return choose_move(b, depth, c)
+
+    return run_match_solver(agent_choose_move, board, counter)
