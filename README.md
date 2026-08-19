@@ -4048,3 +4048,9 @@ Les theoremes d'impossibilite (Arrow, Muller-Satterthwaite, Gibbard-Satterthwait
 ### Difficulte : 5/5
 
 ---
+
+## Licence
+
+Ce depot est distribue sous la licence [MIT](LICENSE), avec l'accord des etudiants contributeurs. Un groupe peut ajouter une licence specifique dans son propre dossier pour ses livrables si ses membres le souhaitent.
+
+---
